@@ -1,0 +1,59 @@
+package emailapp;
+
+import java.util.*;
+
+public class Email{
+    private String firstname;
+    private String lastname;
+    private String passwd;
+    private String dep;
+    private int defaultpassnumber = 10;
+    private String altermail;
+    private String Newpass;
+//     Constructor to receive the first and last name
+    public Email(String firstname, String lastname){
+        this.firstname = firstname;
+        this.lastname = lastname;
+        System.out.println("First Name " + this.firstname);
+        System.out.println("Last Name "+ this.lastname);
+        this.dep = setdep();
+        System.out.println(this.firstname + " " + this.lastname + " is in "+ this.dep);
+        System.out.println("Welcome to " + this.dep);
+        this.passwd = getPasswd(defaultpassnumber);
+        System.out.println("Your password is "+ this.passwd);
+        this.altermail = setmail();
+        System.out.println(firstname.toLowerCase() + "." + lastname.toLowerCase() + "@" + this.dep + ".companyABC.com ");
+        this.Newpass = newpasswd();
+        
+    }
+    // ask for department
+    private String setdep(){
+        System.out.println("Enter the 0 for department 0 1 for department 1 and 2 for department 2");
+        Scanner sc = new Scanner(System.in);
+        int choc = sc.nextInt();
+        if(choc == 0){
+            return "department 0";
+        }
+        else if (choc == 1){
+            return "department 1";
+        }
+        else {
+            return "department 2";
+        }
+
+    }
+    //Generate a random password
+    public String getPasswd(int length)
+    {
+      String passw = "ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789!@#$%^&*()";
+      char [] password = new char[length];
+      for(int i=0; i<length; i++) {
+          int random = (int) (Math.random() * passw.length());
+          password[i] = passw.charAt(random);
+
+      }
+      return new String(password);
+
+
+    }
+}
