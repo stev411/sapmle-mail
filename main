@@ -1,0 +1,17 @@
+package emailapp;
+
+import java.util.*;
+
+public class EmailMain{
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        System.out.print("First name : ");
+        String FN = sc.next();
+        System.out.print("Last Name: ");
+        String LN = sc.next();
+        Email em = new Email(FN,LN);
+
+    }
+}
